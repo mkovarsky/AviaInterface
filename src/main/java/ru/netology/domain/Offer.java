@@ -7,11 +7,11 @@ import lombok.Data;
 @AllArgsConstructor
 public class Offer implements Comparable<Offer> {
 
-    int id;
-    int price;
-    public String depAirport;
-    public String arrAirport;
-    int flightTime;
+    private int id;
+    private int price;
+    private String depAirport;
+    private String arrAirport;
+    private int flightTime;
 
     @Override
     public int compareTo(Offer o) {

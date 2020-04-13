@@ -14,14 +14,14 @@ public class OfferManager {
     public Offer[] findAll(String from, String to) {
         Offer[] result = new Offer[0];
         for (Offer offer : repository.getAll()) {
-            if (offer.arrAirport.equals(to) & offer.depAirport.equals(from)) {
+            if (offer.getArrAirport().equals(to) & offer.getDepAirport().equals(from)) {
                 Offer[] tmp = new Offer[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = offer;
                 result = tmp;
-                Arrays.sort(result);
             }
         }
+        Arrays.sort(result);
         return result;
     }
 }
