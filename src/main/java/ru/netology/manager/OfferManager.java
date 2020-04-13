@@ -5,13 +5,14 @@ import ru.netology.domain.Offer;
 import ru.netology.repository.OfferRepository;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 @AllArgsConstructor
 public class OfferManager {
 
     OfferRepository repository;
 
-    public Offer[] findAll(String from, String to) {
+    public Offer[] findAll(String from, String to, Comparator<Offer> comparator ) {
         Offer[] result = new Offer[0];
         for (Offer offer : repository.getAll()) {
             if (offer.getArrAirport().equals(to) & offer.getDepAirport().equals(from)) {
@@ -21,7 +22,7 @@ public class OfferManager {
                 result = tmp;
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result, comparator);
         return result;
     }
 }
